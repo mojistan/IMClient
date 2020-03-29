@@ -17,7 +17,7 @@ class LogOnWindow : public QDialog
 
 public:
 	LogOnWindow(QWidget *parent = Q_NULLPTR);
-
+	~LogOnWindow();
 private:
 	QGridLayout *mainLayout;
 	ConnectManage *connectManage;

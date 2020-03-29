@@ -22,6 +22,14 @@ ConnectManage::ConnectManage()
 
 ConnectManage::~ConnectManage()
 {
+	tcpSocket->disconnectFromHost();
+	delete tcpSocket;
+
+	if (serverIP != NULL)
+	{
+		delete serverIP;
+		serverIP = NULL;
+	}
 }
 
 int ConnectManage::ConnectServer()

@@ -53,6 +53,35 @@ void LogOnWindow::slotConnect()
 
 	//this->hide();
 }
+LogOnWindow::~LogOnWindow()
+{
+	if (connectManage != NULL) 
+	{
+		delete connectManage;
+		connectManage = NULL;
+	}
+	if (mainLayout != NULL) 
+	{
+		delete mainLayout;
+		mainLayout = NULL;
+	}
+
+	if (idEdit != NULL) 
+	{
+		delete idEdit;
+		idEdit = NULL;
+	}
+	if (PasswordEdit != NULL)
+	{
+		delete PasswordEdit;
+		PasswordEdit = NULL;
+	}
+	if (user != NULL)
+	{
+		delete user;
+		user = NULL;
+	}
+}
 void LogOnWindow::slotLogSuccess()
 {
 	MainWindow* mainWindow = new MainWindow();
@@ -60,6 +89,7 @@ void LogOnWindow::slotLogSuccess()
 	mainWindow->setConnectManage(*connectManage);
 	connectManage->mainWindow = mainWindow;
 	mainWindow->show();
+	this->hide();
 }
 void LogOnWindow::slotLogFailed()
 {

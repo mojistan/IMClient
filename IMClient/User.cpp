@@ -16,6 +16,24 @@ User::User(const char* tid, const char* tpassword)       //只输入用户名密码
 	memcpy(id, tid, strlen(tid) + 1);										//应该检查长度
 	memcpy(password, tpassword, strlen(tpassword) + 1);
 }
+User::~User()
+{
+	if (id != NULL)
+	{
+		delete[] id;
+		id = NULL;
+	}
+	if (password != NULL)
+	{
+		delete[] password;
+		password = NULL;
+	}
+	if (nickname != NULL)
+	{
+		delete[] nickname;
+		nickname = NULL;
+	}
+}
 const char* User::getId()
 {
 	return id;
